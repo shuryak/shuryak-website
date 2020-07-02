@@ -1,0 +1,7 @@
+@mixin logoTextColorCustomOpacity($opacity) {
+  color: rgba(255, 224, 81, $opacity);
+}
+
+@mixin logoBgColorCustomOpacity($opacity) {
+  background-color: rgba(255, 224, 81, $opacity);
+}
