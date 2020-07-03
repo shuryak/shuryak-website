@@ -1,10 +1,10 @@
 import EditorJS from '@editorjs/editorjs';
-const Header = require('@editorjs/header');
-const Delimiter = require('@editorjs/delimiter');
-const InlineCode = require('@editorjs/inline-code');
-const CodeTool = require('@editorjs/code');
-const Table = require('@editorjs/table');
-const List = require('@editorjs/list');
+import Header from '@editorjs/header';
+import Delimiter from '@editorjs/delimiter';
+import InlineCode from '@editorjs/inline-code';
+import CodeTool from '@editorjs/code';
+import Table from '@editorjs/table';
+import List from '@editorjs/list';
 
 const editorConfig: EditorJS.EditorConfig = {
   placeholder: 'Александр, Вы у пульта управления контентом блога!',
