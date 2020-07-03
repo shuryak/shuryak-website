@@ -6,22 +6,23 @@ import CodeTool from '@editorjs/code';
 import Table from '@editorjs/table';
 import List from '@editorjs/list';
 
-const editorConfig: EditorJS.EditorConfig = {
-  placeholder: 'Александр, Вы у пульта управления контентом блога!',
-  tools: {
-    header: Header,
-    delimiter: Delimiter,
-    inlineCode: {
-      class: InlineCode,
-      shortcut: 'ALT+C',
+export default (articleJson: EditorJS.OutputData = { blocks: [] }): EditorJS.EditorConfig => (
+  {
+    placeholder: 'Александр, Вы у пульта управления контентом блога!',
+    tools: {
+      header: Header,
+      delimiter: Delimiter,
+      inlineCode: {
+        class: InlineCode,
+        shortcut: 'ALT+C'
+      },
+      code: CodeTool,
+      table: Table,
+      list: {
+        class: List,
+        inlineToolbar: true
+      }
     },
-    code: CodeTool,
-    table: Table,
-    list: {
-      class: List,
-      inlineToolbar: true,
-    },
+    data: articleJson
   }
-};
-
-export default editorConfig;
+);

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import EditorJS from '@editorjs/editorjs';
-import editorConfig from '../editorjs-config';
+import editorConfigure from '../editorjs-config';
 
 export const EditorPage: React.FunctionComponent = () => {
-  const editor = new EditorJS(editorConfig);
+  const editor = new EditorJS(editorConfigure());
 
   const displayData = () => {
     editor.save().then(output => {
