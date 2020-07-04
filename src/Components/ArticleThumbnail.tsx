@@ -1,12 +1,8 @@
 import React from 'react';
-import '../scss/article-thumbnails.scss';
+import '../scss/article-list.scss';
+import { Article } from '../../custom-typings/common';
 
-type ArticleProps = {
-  title: string;
-  image: string;
-}
-
-export const ArticleThumbnail: React.FunctionComponent<ArticleProps> = ({title, image}) => {
+export const ArticleThumbnail: React.FunctionComponent<Article> = ({title, image}) => {
   return (
     <div className="article-thumbnail">
       <h1 className="article-title">{title}</h1>

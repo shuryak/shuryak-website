@@ -8,6 +8,7 @@
   width: $articleThumbnailWidth;
   height: $articleThumbnailHeight;
   border: 2px solid #101010;
+  margin-top: 20px;
   .article-fade {
     position: absolute;
     width: inherit;
@@ -31,4 +32,11 @@
     text-align: center;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }
+}
+
+.article-list {
+  width: 800px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
