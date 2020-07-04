@@ -1,0 +1,34 @@
+@import 'vars.scss';
+
+.article-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: $articleThumbnailWidth;
+  height: $articleThumbnailHeight;
+  border: 2px solid #101010;
+  .article-fade {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .article-image {
+    width: inherit;
+    height: inherit;
+  }
+  .article-title {
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    width: inherit;
+    margin: 0;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  }
+}
