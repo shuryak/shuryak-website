@@ -34,7 +34,7 @@ export const ArticlesPage: React.FunctionComponent = () => {
       <p className="page-text">
         Здесь статьи удобно разделены по различным категориям, выбирайте приглянувшуюся и читайте!
       </p>
-      <ArticleList articles={articles} />
+      <ArticleList categoryTitle={'Мои любимые рецепты блинчиков'} articles={articles} />
     </React.Fragment>
   );
 };

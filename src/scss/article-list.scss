@@ -35,6 +35,16 @@
 }
 
 .article-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
+
+.article-grid {
+  margin: 0;
   width: 800px;
   display: flex;
   flex-flow: row wrap;
