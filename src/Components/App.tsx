@@ -13,10 +13,6 @@ export const App: React.FunctionComponent = () => {
         <Switch>
           <Route component={MainPage} path="/" exact />
           <Route component={ArticlesPage} path="/articles" />
-        </Switch>
-      </div>
-      <div className="editor-container">
-        <Switch>
           <Route component={EditorPage} path="/editor" />
         </Switch>
       </div>
