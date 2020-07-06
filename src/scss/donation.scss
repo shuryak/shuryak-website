@@ -1,0 +1,17 @@
+.yandex-form {
+  background-color: #ffffff;
+  border: 2px solid #101010;
+  padding: 30px;
+  width: 400px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.payment-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

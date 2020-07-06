@@ -55,3 +55,134 @@ mark {
   font-size: 16px;
   border: solid black 2px;
 }
+
+input {
+  padding: 10px 10px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #101010;
+  border: 2px solid #101010;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+::placeholder {
+  color: lighten($textColor, 50%);
+}
+
+/* Hide arrows for Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  padding: 10px 10px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #101010;
+  border: 2px solid #101010;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  resize: vertical;
+  max-height: 200px;
+}
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // Hide the browser's default radio button
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    // When the radio button is checked, change the background color
+    &:checked ~ .checkmark {
+      background-color: $logoColor;
+    }
+  }
+
+  // On mouse-over, add a grey background color
+  &:hover input ~ .checkmark {
+    background-color: #cccccc;
+  }
+}
+
+.radio-container input:checked ~ .checkmark {
+  background-color: $logoColor;
+}
+
+// Create a custom radio button
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eeeeee;
+  border-radius: 50%;
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+// Show the indicator (dot/circle) when checked
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+// Style the indicator (dot/circle)
+.radio-container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+button {
+  padding: 10px 10px;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: $logoColor;
+  color: #101010;
+  border: 2px solid #101010;
+  box-sizing: border-box;
+  &:hover {
+    background-color: lighten($logoColor, 10%);
+  }
+  &:active {
+    background-color: darken($logoColor, 5%);
+  }
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 2px;
+}

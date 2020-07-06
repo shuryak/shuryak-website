@@ -4,6 +4,7 @@ import { Navbar } from './Navbar';
 import { MainPage } from '../Pages/MainPage';
 import { ArticlesPage } from '../Pages/ArticlesPage';
 import { EditorPage } from '../Pages/EditorPage';
+import { DonationPage } from '../Pages/DonationPage';
 
 export const App: React.FunctionComponent = () => {
   return (
@@ -14,6 +15,7 @@ export const App: React.FunctionComponent = () => {
           <Route component={MainPage} path="/" exact />
           <Route component={ArticlesPage} path="/articles" />
           <Route component={EditorPage} path="/editor" />
+          <Route component={DonationPage} path="/donation" />
         </Switch>
       </div>
     </BrowserRouter>

@@ -23,7 +23,7 @@ export const Navbar: React.FunctionComponent = () => {
         <ul className="nav-menu">
           <li><NavLink to="/">Главная</NavLink></li>
           <li><NavLink to="/articles">Статьи</NavLink></li>
-          <li><NavLink to="/">Донат :з</NavLink></li>
+          <li><NavLink to="/donation">Донат :з</NavLink></li>
         </ul>
       </nav>
     </header>
