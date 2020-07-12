@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.article-content {
+  margin-top: 20px;
+  background-color: #ffffff;
+  border: 2px solid #101010;
+  text-align: justify;
+  padding: 30px 100px;
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
+  color: #000000;
+
+  p {
+    margin: 1em 0 0 0;
+    font-size: 18px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 1.5em 0;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul, ol {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+}
