@@ -30,6 +30,18 @@ export default (jsonData : EditorJS.OutputData) => {
                 }
                 result.push(<table key={index++}><tbody>{tableArray}</tbody></table>);
                 break;
+            case 'list':
+                const listItems: JSX. Element[] = [];
+
+                let itemIndex = 0;
+                for (const item of block.data.items) {
+                    listItems.push(<li key={itemIndex++}>{item}</li>);
+                }
+
+                const isOrdered = block.data.style === 'ordered';
+                const CustomListTag = isOrdered ? 'ol' : 'ul';
+
+                result.push(<CustomListTag key={index++}>{listItems}</CustomListTag>);
         }
     }
 
