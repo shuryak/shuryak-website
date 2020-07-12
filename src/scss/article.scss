@@ -13,10 +13,18 @@
   p {
     margin: 1em 0 0 0;
     font-size: 18px;
+
+    &::selection {
+      background-color: #b3d4fb;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 1em 0 1.5em 0;
+
+    &::selection {
+      background-color: #b3d4fb;
+    }
   }
 
   h1 {
@@ -26,6 +34,18 @@
   ul, ol {
     list-style-position: inside;
     padding-left: 0;
+
+    li {
+      &::selection {
+        background-color: #b3d4fb;
+      }
+    }
+  }
+
+  td {
+    &::selection {
+      background-color: #b3d4fb;
+    }
   }
 
 }
