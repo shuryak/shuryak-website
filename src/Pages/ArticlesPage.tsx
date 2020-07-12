@@ -8,23 +8,28 @@ export const ArticlesPage: React.FunctionComponent = () => {
   const [articles, setArticles] = useState<Article[]>([
     {
       title: 'Как меня пригласили разрабатывать ПО для кораблей SpaceX',
-      image
+      image,
+      id: 'spacex-software'
     },
     {
       title: 'Физика правильной посадки ракеты на Марс',
-      image
+      image,
+      id: 'rocket-physics'
     },
     {
       title: 'Rocket Science For Dummies',
-      image
+      image,
+      id: 'rocker-science-for-dummies'
     },
     {
       title: 'Rocket Science For Dummies',
-      image
+      image,
+      id: 'rocker-science-for-dummies'
     },
     {
       title: 'Rocket Science For Dummies',
-      image
+      image,
+      id: 'rocker-science-for-dummies'
     }
   ]);
 

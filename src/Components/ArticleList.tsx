@@ -12,6 +12,7 @@ export const ArticleList: React.FunctionComponent<{categoryTitle: string, articl
             <ArticleThumbnail
               title={article.title}
               image={article.image}
+              id={article.id}
               key={index}
             />
           );

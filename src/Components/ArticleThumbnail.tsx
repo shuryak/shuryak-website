@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import '../scss/article-list.scss';
 import { Article } from '../../custom-typings/common';
 
-export const ArticleThumbnail: React.FunctionComponent<Article> = ({title, image}) => {
+export const ArticleThumbnail: React.FunctionComponent<Article> = ({title, image, id}) => {
   return (
-      <NavLink to="/article/3" className="article-thumbnail">
+      <NavLink to={`/article/${id}`} className="article-thumbnail">
         <h1 className="article-title">{title}</h1>
         <div className="article-fade"/>
         <img className="article-image" src={image} alt={title}/>
