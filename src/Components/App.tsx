@@ -17,7 +17,7 @@ export const App: React.FunctionComponent = () => {
           <Route component={ArticlesPage} path="/articles" />
           <Route component={EditorPage} path="/editor" />
           <Route component={DonationPage} path="/donation" />
-          <Route component={ArticlePage} path="/article" />
+          <Route component={ArticlePage} path="/article/:id" />
         </Switch>
       </div>
     </BrowserRouter>
