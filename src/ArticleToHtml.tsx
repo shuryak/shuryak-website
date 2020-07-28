@@ -1,8 +1,12 @@
 import React from 'react';
 import EditorJS from '@editorjs/editorjs';
 
-export default (jsonData : EditorJS.OutputData) => {
+export default (jsonData : EditorJS.OutputData | undefined) => {
     const result: JSX.Element[] = [];
+
+    if(typeof(jsonData) === 'undefined') {
+        return;
+    }
 
     let index = 0;
     for (const block of jsonData.blocks) {
@@ -44,8 +48,6 @@ export default (jsonData : EditorJS.OutputData) => {
                 result.push(<CustomListTag key={index++}>{listItems}</CustomListTag>);
         }
     }
-
-    console.log(result);
 
     return result;
 }

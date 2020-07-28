@@ -1,38 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArticleThumbnail } from '../Components/ArticleThumbnail';
 import image from '../test-assets/osdev.png';
 import { ArticleList } from '../Components/ArticleList';
-import { Article } from '../../custom-typings/common';
+import { MetaArticle } from '../../custom-typings/common';
+import sendRequest from '../sendRequest';
 
 export const ArticlesPage: React.FunctionComponent = () => {
-  const [articles, setArticles] = useState<Article[]>([
-    {
-      title: 'Как меня пригласили разрабатывать ПО для кораблей SpaceX',
-      image,
-      id: 'spacex-software'
-    },
-    {
-      title: 'Физика правильной посадки ракеты на Марс',
-      image,
-      id: 'rocket-physics'
-    },
-    {
-      title: 'Rocket Science For Dummies',
-      image,
-      id: 'rocker-science-for-dummies'
-    },
-    {
-      title: 'Rocket Science For Dummies',
-      image,
-      id: 'rocker-science-for-dummies'
-    },
-    {
-      title: 'Rocket Science For Dummies',
-      image,
-      id: 'rocker-science-for-dummies'
-    }
-  ]);
+  const [articles, setArticles] = useState<MetaArticle[]>([]);
 
+  useEffect(() => {
+    sendRequest('POST', 'http://localhost:8181/api/articles.getList', {
+      count: 10,
+      offset: 0
+    })
+        .then(data => {
+          console.log(data.data);
+          if(data.data) {
+            setArticles(data.data);
+          }
+        });
+  }, [])
+  
   return (
     <React.Fragment>
       <h1 className="page-header">Статьи</h1>
