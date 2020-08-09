@@ -16,8 +16,8 @@ export const MainPage: React.FunctionComponent = () => {
     <React.Fragment>
       <h1 className="page-header">Главная</h1>
       <p className="page-text">
-        Меня зовут Саша, мне {getAgeDeclension(16)}, я разработчик, преимущественно по части backend: люблю <mark>C#</mark> и&nbsp;
-        <mark>ASP.NET Core</mark>, умею в <mark>PHP</mark> и хочу научиться в GoLang. Также интересуюсь низкоуровневым программированием.
+        Меня зовут Саша, мне {getAgeDeclension(age)}, я разработчик, преимущественно по части backend: люблю <mark>C#</mark> и&nbsp;
+        <mark>ASP.NET Core</mark>, умею в <mark>PHP</mark> и <mark>Golang</mark>. Также интересуюсь низкоуровневым программированием.
         Люблю писать статьи &mdash; причина создания этого сайта.
       </p>
     </React.Fragment>

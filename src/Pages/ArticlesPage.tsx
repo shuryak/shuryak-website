@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ArticleThumbnail } from '../Components/ArticleThumbnail';
-import image from '../test-assets/osdev.png';
 import { ArticleList } from '../Components/ArticleList';
 import { MetaArticle } from '../../custom-typings/common';
 import sendRequest from '../sendRequest';
@@ -14,7 +12,6 @@ export const ArticlesPage: React.FunctionComponent = () => {
       offset: 0
     })
         .then(data => {
-          console.log(data.data);
           if(data.data) {
             setArticles(data.data);
           }

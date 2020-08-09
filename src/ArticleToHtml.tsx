@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import EditorJS from '@editorjs/editorjs';
 
 export default (jsonData : EditorJS.OutputData | undefined) => {
-    const result: JSX.Element[] = [];
+    const result: ReactElement[] = [];
 
     if(typeof(jsonData) === 'undefined') {
         return;
@@ -16,7 +16,8 @@ export default (jsonData : EditorJS.OutputData | undefined) => {
                 result.push(<CustomHeaderTag {...{key: index++}}>{block.data.text}</CustomHeaderTag>);
                 break;
             case 'paragraph':
-                result.push(<p key={index++}>{block.data.text}</p>);
+                // result.push(<p key={index++} >{block.data.text}</p>);
+                result.push(<p key={index++} dangerouslySetInnerHTML={{__html: block.data.text}}/>);
                 break;
             case 'table':
                 const tableArray: JSX.Element[] = [];
@@ -27,7 +28,8 @@ export default (jsonData : EditorJS.OutputData | undefined) => {
 
                     let tdIndex = 0;
                     for (const td of tr) {
-                        rowArray.push(<td key={tdIndex++}>{td}</td>);
+                        // rowArray.push(<td key={tdIndex++}>{td}</td>);
+                        rowArray.push(<td key={tdIndex++} dangerouslySetInnerHTML={{__html: td}}/>);
                     }
 
                     tableArray.push(<tr key={trIndex++}>{...rowArray}</tr>);
@@ -39,7 +41,8 @@ export default (jsonData : EditorJS.OutputData | undefined) => {
 
                 let itemIndex = 0;
                 for (const item of block.data.items) {
-                    listItems.push(<li key={itemIndex++}>{item}</li>);
+                    // listItems.push(<li key={itemIndex++}>{item}</li>);
+                    listItems.push(<li key={itemIndex++} dangerouslySetInnerHTML={{__html: item}}/>);
                 }
 
                 const isOrdered = block.data.style === 'ordered';
