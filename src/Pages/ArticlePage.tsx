@@ -25,7 +25,6 @@ export const ArticlePage: React.FunctionComponent<RouteComponentProps<ArticlePar
 
     return (
         <React.Fragment>
-            <h1 className="page-header">Просмотр статьи</h1>
             <div className="article-content">{ArticleToHtml(article)}</div>
         </React.Fragment>
     );
