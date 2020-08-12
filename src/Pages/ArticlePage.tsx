@@ -25,6 +25,7 @@ export const ArticlePage: React.FunctionComponent<RouteComponentProps<ArticlePar
 
     return (
         <React.Fragment>
+            <div className="under-header"/>
             <div className="article-content">{ArticleToHtml(article)}</div>
         </React.Fragment>
     );

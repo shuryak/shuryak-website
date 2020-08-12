@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer'
 import { MainPage } from '../Pages/MainPage';
 import { ArticlesPage } from '../Pages/ArticlesPage';
 import { EditorPage } from '../Pages/EditorPage';
@@ -20,6 +21,7 @@ export const App: React.FunctionComponent = () => {
           <Route component={ArticlePage} path="/article/:id" />
         </Switch>
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 };

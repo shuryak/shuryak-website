@@ -3,13 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .article-content {
-  top: 0;
-  position: absolute;
   background-color: #ffffff;
   border: 2px solid #101010;
   border-top: 0;
   text-align: justify;
-  padding: $navHeight 100px 30px;
+  padding: 30px 100px 30px;
   font-family: 'PT Serif', serif;
   font-weight: 400;
   color: $articleFontColor;
