@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArticleList } from '../Components/ArticleList';
-import { MetaArticle } from '../../custom-typings/common';
+import { MetaArticle } from '../../custom-typings/articles';
 import sendRequest from '../sendRequest';
 
 export const ArticlesPage: React.FunctionComponent = () => {

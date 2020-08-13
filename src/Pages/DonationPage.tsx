@@ -2,7 +2,7 @@ import React from 'react';
 import '../scss/main.scss';
 import '../scss/donation.scss';
 
-export const DonationPage = () => {
+export const DonationPage: React.FunctionComponent = () => {
   return (
     <React.Fragment>
       <h1 className="page-header">Донат</h1>

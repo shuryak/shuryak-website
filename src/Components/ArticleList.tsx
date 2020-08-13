@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticleThumbnail } from './ArticleThumbnail';
-import { MetaArticle } from '../../custom-typings/common';
+import { MetaArticle } from '../../custom-typings/articles';
 
 export const ArticleList: React.FunctionComponent<{categoryTitle: string, articles: MetaArticle[]}> = ({categoryTitle, articles}) => {
   return (
