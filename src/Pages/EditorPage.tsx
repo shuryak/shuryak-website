@@ -15,7 +15,7 @@ export const EditorPage: React.FunctionComponent = () => {
 
   return (
       <React.Fragment>
-        <div id="editorjs"></div>
+        <div id="editorjs"/>
         <button onClick={displayData}>save</button>
       </React.Fragment>
     );
