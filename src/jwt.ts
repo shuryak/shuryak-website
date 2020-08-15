@@ -1,12 +1,11 @@
 import sendRequest from './sendRequest';
 import ApiErrors from './apiErrors';
+import { UsersMethods } from './apiMethods';
 
 export const refreshTokenPair = () => {
-  const refreshTokenDto = {
+  sendRequest('POST', UsersMethods.RefreshTokenPair, {
     refresh_token: localStorage.getItem("refresh_token")
-  }
-
-  sendRequest('POST', 'http://localhost:8181/api/users.refreshTokenPair', refreshTokenDto)
+  })
     .then(data => {
       const errorCode: number | undefined = data.data.error_code;
 

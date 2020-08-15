@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import EditorJS from '@editorjs/editorjs';
-import editorConfigure from '../editorjs-config';
+import editorConfigure from '../editorjsConfig';
 
 export const EditorPage: React.FunctionComponent = () => {
   const editor = new EditorJS(editorConfigure());

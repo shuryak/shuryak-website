@@ -5,6 +5,7 @@ import '../scss/login.scss';
 import sendRequest from '../sendRequest';
 import ApiErrors from '../apiErrors';
 import Limits from '../limits';
+import { UsersMethods } from '../apiMethods';
 
 export const LoginPage: React.FunctionComponent = () => {
   const history = useHistory();
@@ -29,7 +30,7 @@ export const LoginPage: React.FunctionComponent = () => {
       password
     };
 
-    sendRequest('POST', 'http://localhost:8181/api/users.login', dto)
+    sendRequest('POST', UsersMethods.Login, dto)
       .then(data => {
         const errorCode: number | undefined = data.data.error_code;
 
