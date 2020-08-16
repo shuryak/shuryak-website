@@ -2,10 +2,9 @@ import React from 'react';
 import { ArticleThumbnail } from './ArticleThumbnail';
 import { MetaArticle } from '../../custom-typings/articles';
 
-export const ArticleList: React.FunctionComponent<{categoryTitle: string, articles: MetaArticle[]}> = ({categoryTitle, articles}) => {
+export const ArticleList: React.FunctionComponent<{articles: MetaArticle[]}> = ({articles}) => {
   return (
     <div className="article-list">
-      <h3 className="article-category-title">{categoryTitle}</h3>
       <div className="article-grid">
         {articles.map((article: MetaArticle, index: number) => {
           return (

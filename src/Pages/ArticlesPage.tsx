@@ -22,9 +22,9 @@ export const ArticlesPage: React.FunctionComponent = () => {
     <React.Fragment>
       <h1 className="page-header">Статьи</h1>
       <p className="page-text">
-        Здесь статьи удобно разделены по различным категориям, выбирайте приглянувшуюся и читайте!
+        На этой странице представлен список всех статьей, открывай приглянувшуюся и читай! Надеюсь, тебе понравится! :)
       </p>
-      <ArticleList categoryTitle={'Мои любимые рецепты блинчиков'} articles={articles} />
+      <ArticleList articles={articles} />
     </React.Fragment>
   );
 };
