@@ -22,6 +22,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 .content-container {
   padding-top: $navHeight;
   display: flex;

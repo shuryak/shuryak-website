@@ -24,6 +24,21 @@
     box-sizing: border-box;
     padding: 0 30px;
 
+    .logout {
+      text-transform: uppercase;
+      margin-left: auto;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      color: $navTextColor;
+      &:hover {
+        color: darken($navTextColor, 10%);
+      }
+      &:active {
+        color: $logoColor;
+      }
+    }
+
     img {
       height: 75%;
     }
@@ -37,6 +52,7 @@
         font-size: 18px;
         text-transform: uppercase;
         cursor: pointer;
+        user-select: none;
         height: 100%;
         a {
           text-decoration: none;

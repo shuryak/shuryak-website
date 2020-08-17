@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { ArticleList } from '../Components/ArticleList';
 import { MetaArticle } from '../../custom-typings/articles';
 import sendRequest from '../sendRequest';
+import { ArticlesMethods } from '../apiMethods';
 
 export const ArticlesPage: React.FunctionComponent = () => {
   const [articles, setArticles] = useState<MetaArticle[]>([]);
 
   useEffect(() => {
-    sendRequest('POST', 'http://localhost:8181/api/articles.getList', {
+    sendRequest('POST', ArticlesMethods.GetList, {
       count: 10,
       offset: 0
     })

@@ -39,8 +39,7 @@ export const LoginPage: React.FunctionComponent = () => {
           localStorage.setItem("access_expires_in", data.data.access_expires_in);
           localStorage.setItem("refresh_token", data.data.refresh_token);
           localStorage.setItem("refresh_expires_in", data.data.refresh_expires_in);
-          setError('');
-          history.push('/');
+          location.replace('/');
           return;
         }
 
