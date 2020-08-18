@@ -3,7 +3,7 @@ import ApiErrors from './apiErrors';
 import { UsersMethods } from './apiMethods';
 
 export const refreshTokenPair = () => {
-  sendRequest('POST', UsersMethods.RefreshTokenPair, {
+  return sendRequest('POST', UsersMethods.RefreshTokenPair, {
     refresh_token: localStorage.getItem("refresh_token")
   })
     .then(data => {

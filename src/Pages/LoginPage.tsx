@@ -80,24 +80,24 @@ export const LoginPage: React.FunctionComponent = () => {
           возможность комментирования статей, но это потом, хорошо? (. ❛ ᴗ ❛.)
         </p>
         <p className="error-message">{error}</p>
-        <div className="auth-field">
+        <div className="field-block">
           <label htmlFor="login">Никнейм:</label>
           <input
             id="login"
             name="login"
             type="text"
-            className={nickname.length < Limits.NicknameMin? 'bad-input' : ''}
+            className={nickname.length < Limits.NicknameMin? 'auth-input bad-input' : 'auth-input'}
             maxLength={Limits.NicknameMax}
             onChange={handleInputChange}
           />
         </div>
-        <div className="auth-field">
+        <div className="field-block">
           <label htmlFor="password">Пароль:</label>
           <input
             id="password"
             name="password"
             type="password"
-            className={password.length < Limits.PasswordMin? 'bad-input' : ''}
+            className={password.length < Limits.PasswordMin? 'auth-input bad-input' : 'auth-input'}
             maxLength={Limits.PasswordMax}
             onChange={handleInputChange}/>
         </div>

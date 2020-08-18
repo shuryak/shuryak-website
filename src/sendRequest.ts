@@ -1,10 +1,10 @@
-export default function sendRequest(method: string, url: string, body: object | null = null, access_token: string | null = null) {
+export default function sendRequest(method: string, url: string, body: object | null = null) {
     const headers = {
         'Content-Type': 'application/json',
     };
 
-    if(access_token) {
-        headers['Authorization'] = 'Bearer ' + access_token;
+    if(localStorage.getItem('access_token')) {
+        headers['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
     }
 
     return fetch(url, {

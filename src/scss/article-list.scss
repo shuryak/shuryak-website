@@ -25,10 +25,20 @@
     box-sizing: border-box;
     width: inherit;
     margin: 0;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
     font-weight: 700;
     color: #ffffff;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     text-align: center;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }

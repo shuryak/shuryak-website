@@ -8,7 +8,7 @@ export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({name, th
       <NavLink to={`/article/${id}`} className="article-thumbnail">
         <h1 className="article-title">{name}</h1>
         <div className="article-fade"/>
-        <img className="article-image" src={thumbnail} alt={name}/>
+        <img className="article-image" src={thumbnail} alt=""/>
       </NavLink>
   );
 }
