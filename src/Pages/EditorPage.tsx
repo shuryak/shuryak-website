@@ -124,6 +124,7 @@ export const EditorPage: React.FunctionComponent = () => {
                 type="text"
                 className={name.length < Limits.ArticleNameMin ? 'article-input bad-input' : 'article-input'}
                 maxLength={Limits.ArticleNameMax}
+                autoComplete="off"
                 onChange={handleInputChange}
               />
             </div>
@@ -135,6 +136,7 @@ export const EditorPage: React.FunctionComponent = () => {
                 type="text"
                 className={id.length < Limits.ArticleIdMin ? 'article-input bad-input' : 'article-input'}
                 maxLength={Limits.ArticleIdMax}
+                autoComplete="off"
                 onChange={handleInputChange}
               />
             </div>
@@ -145,6 +147,7 @@ export const EditorPage: React.FunctionComponent = () => {
                 name="thumbnail"
                 type="text"
                 className={!isImage(thumbnail) ? 'article-input bad-input' : 'article-input'}
+                autoComplete="off"
                 onChange={handleInputChange}
               />
             </div>

@@ -88,6 +88,7 @@ export const LoginPage: React.FunctionComponent = () => {
             type="text"
             className={nickname.length < Limits.NicknameMin? 'auth-input bad-input' : 'auth-input'}
             maxLength={Limits.NicknameMax}
+            autoComplete="off"
             onChange={handleInputChange}
           />
         </div>
@@ -99,6 +100,7 @@ export const LoginPage: React.FunctionComponent = () => {
             type="password"
             className={password.length < Limits.PasswordMin? 'auth-input bad-input' : 'auth-input'}
             maxLength={Limits.PasswordMax}
+            autoComplete="off"
             onChange={handleInputChange}/>
         </div>
         <button className="auth-button" onClick={loginHandler}>Войти</button>
