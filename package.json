@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "serve": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": "shuryak <shuryak@protonmail.com>",
   "license": "ISC",
