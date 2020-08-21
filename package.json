@@ -1,4 +1,5 @@
 {
+  "homepage": "http://shuryak.github.io/shuryak-website",
   "name": "typereact-config",
   "version": "1.0.0",
   "description": "",
@@ -6,7 +7,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "serve": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
+    "serve": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "shuryak <shuryak@protonmail.com>",
   "license": "ISC",
@@ -23,6 +26,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
