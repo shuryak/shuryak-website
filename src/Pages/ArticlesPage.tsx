@@ -9,6 +9,7 @@ export const ArticlesPage: React.FunctionComponent = () => {
 
   useEffect(() => {
     sendRequest('POST', ArticlesMethods.GetList, {
+      get_drafts: false,
       count: 10,
       offset: 0
     })
