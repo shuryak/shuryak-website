@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, HashRouter } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer'
 import { MainPage } from '../Pages/MainPage';
@@ -11,7 +11,7 @@ import { LoginPage } from '../Pages/LoginPage';
 
 export const App: React.FunctionComponent = () => {
   return (
-    <BrowserRouter>
+    <HashRouter> {/* for gh pages */}
       <Navbar/>
       <div className="content-container">
         <Switch>
@@ -24,7 +24,7 @@ export const App: React.FunctionComponent = () => {
         </Switch>
       </div>
       <Footer/>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
