@@ -1,0 +1,25 @@
+@import 'vars.scss';
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 800px;
+}
+
+p.get-drafts {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 0 20px;
+  width: auto;
+  &:hover {
+    color: darken($textColor, 30%);
+  }
+  &:active {
+    color: $textColor;
+  }
+}

@@ -24,18 +24,11 @@
     box-sizing: border-box;
     padding: 0 30px;
 
-    .logout {
-      text-transform: uppercase;
-      margin-left: auto;
-      text-decoration: none;
-      cursor: pointer;
-      user-select: none;
-      color: $navTextColor;
-      &:hover {
-        color: darken($navTextColor, 10%);
-      }
-      &:active {
-        color: $logoColor;
+    .extra-nav-menu {
+      margin: 0 0 0 auto;
+      padding: 0;
+      li {
+        margin: 0 0 0 50px;
       }
     }
 

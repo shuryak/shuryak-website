@@ -4,6 +4,7 @@ import ArticleToHtml from '../ArticleToHtml';
 import '../scss/article.scss';
 import sendRequest from '../sendRequest';
 import { OutputData } from '@editorjs/editorjs';
+import { ArticlesMethods } from '../apiMethods';
 
 // https://stackoverflow.com/questions/48138111/what-typescript-type-should-i-use-to-reference-the-match-object-in-my-props
 interface ArticleParams {
@@ -14,14 +15,14 @@ export const ArticlePage: React.FunctionComponent<RouteComponentProps<ArticlePar
     const [article, setArticle] = useState<OutputData>();
 
     useEffect(() => {
-        sendRequest('POST', 'http://localhost:8181/api/articles.getById', {
+        sendRequest('POST', ArticlesMethods.GetById, {
             id: props.match.params.id
         }).then(data => {
             if(data.data) {
                 setArticle(data.data.article_data);
             }
         });
-    }, [])
+    }, []);
 
     return (
         <React.Fragment>

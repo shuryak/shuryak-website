@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../scss/navbar.scss';
 import logo from './logo.png';
 
@@ -31,13 +31,24 @@ export const Navbar: React.FunctionComponent = () => {
           <li><NavLink to="/articles">Статьи</NavLink></li>
           <li><NavLink to="/donation">Донат :з</NavLink></li>
         </ul>
-        
-        <p
-          className={'logout ' + (localStorage.getItem('access_token') !== null ? '' : 'hide')}
-          onClick={logoutHandler}
-        >
-          Выйти
-        </p>
+
+        <ul className="extra-nav-menu">
+          <li>
+            <NavLink to="/editor"
+              className={'editor-button ' + (localStorage.getItem('access_token') !== null ? '' : 'hide')}
+            >
+            Открыть редактор
+            </NavLink>
+          </li>
+          <li>
+            <a
+              className={'logout ' + (localStorage.getItem('access_token') !== null ? '' : 'hide')}
+              onClick={logoutHandler}
+            >
+              Выйти
+            </a>
+          </li>
+        </ul>
       </nav>
     </header>
   );

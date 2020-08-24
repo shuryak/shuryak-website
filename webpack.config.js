@@ -58,7 +58,7 @@ module.exports = {
   output: {
     filename: filename('js'),
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isDev ? '/' : undefined
+    publicPath: isDev ? '/' : ''
   },
   optimization: optimization(),
   devServer: {

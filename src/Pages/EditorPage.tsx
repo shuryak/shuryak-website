@@ -1,22 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import EditorJS from '@editorjs/editorjs';
+import EditorJS, { OutputData } from '@editorjs/editorjs';
 import editorConfigure from '../editorjsConfig';
 import '../scss/editor.scss';
 import Limits from '../limits';
 import sendRequest from '../sendRequest';
-import { ArticlesMethods } from '../apiMethods';
+import { ArticlesMethods, UsersMethods } from '../apiMethods';
 import { Article, MetaArticle } from '../../custom-typings/articles';
 import { ArticleThumbnail } from '../Components/ArticleThumbnail';
 import ApiErrors from '../apiErrors';
 import { refreshTokenPair } from '../jwt';
 
-const editor = new EditorJS(editorConfigure());
+let editor;
 
-export const EditorPage: React.FunctionComponent = () => {
+export const EditorPage = (props) => {
   const [id, setId] = useState<string>('');
   const [name, setName] = useState<string>('');
+  const [author, setAuthor] = useState<string>('');
   const [thumbnail, setThumbnail] = useState<string>('');
   const [error, setError] = useState<string>('');
+
+  const runEditorJS = (articleJson?: OutputData) => {
+    return new EditorJS(editorConfigure(articleJson));
+  }
+
+  useEffect(() => {
+    const articleId = props.location.state?.articleId;
+
+    if(articleId === undefined) {
+      editor = runEditorJS();
+      return;
+    }
+
+    sendRequest('POST', UsersMethods.GetUserInfo)
+      .then(data => {
+        if(data.data) {
+          setAuthor(data.data.nickname);
+        }
+      })
+
+    sendRequest('POST', ArticlesMethods.GetById, {
+      id: articleId
+    }).then(data => {
+      if(data.data) {
+        setId(data.data.id);
+        setName(data.data.name);
+        setThumbnail(data.data.thumbnail);
+        editor = runEditorJS(data.data.article_data);
+      }
+    });
+  }, [])
 
   const isImage = (url: string): boolean => {
     try {
@@ -50,44 +82,53 @@ export const EditorPage: React.FunctionComponent = () => {
 
 
     const articleData = await editor.save();
-      const metaArticle: Article = {
-        id,
-        name,
-        thumbnail,
-        is_draft: isDraft,
-        article_data: articleData
-      }
+    const metaArticle: Article = {
+      id,
+      name,
+      author,
+      thumbnail,
+      is_draft: isDraft,
+      article_data: articleData
+    };
 
-      sendRequest('POST', ArticlesMethods.Create, metaArticle)
-        .then(data => {
-          const errorCode: number | undefined = data.data.error_code;
+    let apiMethod: string;
 
-          if(errorCode === undefined) {
-            alert('article is saved!');
-            return;
-          }
+    if(props.location.state?.articleId !== undefined) {
+      apiMethod = ArticlesMethods.Update;
+    } else {
+      apiMethod = ArticlesMethods.Create
+    }
 
-          let errorMessage: string = '';
+    sendRequest('POST', apiMethod, metaArticle)
+      .then(data => {
+        const errorCode: number | undefined = data.data.error_code;
 
-          switch (errorCode) {
-            case ApiErrors.InvalidToken:
-              refreshTokenPair().then(() => saveArticle(isDraft));
-              break;
-            case ApiErrors.InvalidFieldLength:
-              errorMessage = 'Недопустимая длина названия или ID';
-              break;
-            case ApiErrors.NotUniqueData:
+        if(errorCode === undefined) {
+          alert('article is saved!');
+          return;
+        }
+
+        let errorMessage: string = '';
+
+        switch (errorCode) {
+          case ApiErrors.InvalidToken:
+            refreshTokenPair().then(() => saveArticle(isDraft));
+            break;
+          case ApiErrors.InvalidFieldLength:
+            errorMessage = 'Недопустимая длина названия или ID';
+            break;
+          case ApiErrors.NotUniqueData:
               errorMessage = 'Статья с таким названием или ID уже существует: ' + data.data.message;
               break;
-            case ApiErrors.BadRequest:
-              errorMessage = data.data.message;
-              break;
-            default:
-              errorMessage = 'Непредвиденная ошибка!';
+          case ApiErrors.BadRequest:
+            errorMessage = data.data.message;
+            break;
+          default:
+            errorMessage = 'Непредвиденная ошибка!';
           }
 
-          setError(errorMessage)
-        });
+        setError(errorMessage)
+      });
   }
 
   const handleInputChange = (event) => {
@@ -125,6 +166,7 @@ export const EditorPage: React.FunctionComponent = () => {
                 className={name.length < Limits.ArticleNameMin ? 'article-input bad-input' : 'article-input'}
                 maxLength={Limits.ArticleNameMax}
                 autoComplete="off"
+                value={name}
                 onChange={handleInputChange}
               />
             </div>
@@ -137,6 +179,7 @@ export const EditorPage: React.FunctionComponent = () => {
                 className={id.length < Limits.ArticleIdMin ? 'article-input bad-input' : 'article-input'}
                 maxLength={Limits.ArticleIdMax}
                 autoComplete="off"
+                value={id}
                 onChange={handleInputChange}
               />
             </div>
@@ -148,22 +191,24 @@ export const EditorPage: React.FunctionComponent = () => {
                 type="text"
                 className={!isImage(thumbnail) ? 'article-input bad-input' : 'article-input'}
                 autoComplete="off"
+                value={thumbnail}
                 onChange={handleInputChange}
               />
             </div>
           </div>
 
           <ArticleThumbnail
+            id={id}
             name={name}
+            author={author}
             thumbnail={thumbnail}
             is_draft={true}
-            id={id}
           />
         </div>
 
         <div id="editorjs"/>
         <div className="editor-save-buttons">
-          <button className="draft-button" onClick={() => saveArticle(true)}>Сохранить как черновик 📓</button>
+          <button className="draft-button" onClick={() => saveArticle(true)}>Сохранить как черновик 📝</button>
           <button className="publish-button" onClick={() => saveArticle(false)}>Опубликовать 📢</button>
         </div>
       </div>

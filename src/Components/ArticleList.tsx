@@ -9,10 +9,11 @@ export const ArticleList: React.FunctionComponent<{articles: MetaArticle[]}> = (
         {articles.map((article: MetaArticle, index: number) => {
           return (
             <ArticleThumbnail
+              id={article.id}
               name={article.name}
+              author={article.author}
               thumbnail={article.thumbnail}
               is_draft={article.is_draft}
-              id={article.id}
               key={index}
             />
           );
