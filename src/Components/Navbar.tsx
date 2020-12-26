@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import '../scss/navbar.scss';
 import logo from './logo.png';
 
 export const Navbar: React.FunctionComponent = () => {
+  const history = useHistory();
+  const [showExtraMenu, setShowExtraMenu] = useState<boolean>(true);
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const handleScroll = () => {
@@ -18,35 +21,40 @@ export const Navbar: React.FunctionComponent = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
+    if (document.documentElement.clientWidth < 600) {
+      setShowExtraMenu(false);
+    }
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className={isScroll ? 'header-wrapper minimize' : 'header-wrapper'}>
+    <header className={isScroll && showExtraMenu? 'header-wrapper minimize' : 'header-wrapper'}>
       <nav className="nav-wrapper">
-        <img src={logo} alt="shuryak logo"/>
+        <img src={logo} alt="shuryak logo" onClick={() => {history.push('/')}}/>
 
         <ul className="nav-menu">
-          <li><NavLink to="/">Главная</NavLink></li>
+          {showExtraMenu &&
+            <li><NavLink to="/">Главная</NavLink></li>
+          }
           <li><NavLink to="/articles">Статьи</NavLink></li>
           <li><NavLink to="/donation">Донат :з</NavLink></li>
         </ul>
 
         <ul className="extra-nav-menu">
           <li>
-            <NavLink to="/editor"
-              className={'editor-button ' + (localStorage.getItem('access_token') !== null ? '' : 'hide')}
-            >
-            Открыть редактор
-            </NavLink>
+            {localStorage.getItem('access_token') !== null && showExtraMenu &&
+              <NavLink to="/editor" className="editor-button">
+                Открыть редактор
+              </NavLink>
+            }
           </li>
           <li>
-            <a
-              className={'logout ' + (localStorage.getItem('access_token') !== null ? '' : 'hide')}
-              onClick={logoutHandler}
-            >
-              Выйти
-            </a>
+            {localStorage.getItem('access_token') !== null && showExtraMenu &&
+              <a className="logout" onClick={logoutHandler}>
+                Выйти
+              </a>
+            }
           </li>
         </ul>
       </nav>

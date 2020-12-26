@@ -4,8 +4,6 @@ import { MetaArticle } from '../../custom-typings/articles';
 import sendRequest from '../sendRequest';
 import { ArticlesMethods } from '../apiMethods';
 import '../scss/articles.scss';
-import { Simulate } from 'react-dom/test-utils';
-import error = Simulate.error;
 import ApiErrors from '../apiErrors';
 import { refreshTokenPair } from '../jwt';
 
