@@ -21,7 +21,7 @@ export const Navbar: React.FunctionComponent = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
-    if (document.documentElement.clientWidth < 600) {
+    if (document.documentElement.clientWidth < 840) {
       setShowExtraMenu(false);
     }
 
@@ -34,9 +34,6 @@ export const Navbar: React.FunctionComponent = () => {
         <img src={logo} alt="shuryak logo" onClick={() => {history.push('/')}}/>
 
         <ul className="nav-menu">
-          {showExtraMenu &&
-            <li><NavLink to="/">Главная</NavLink></li>
-          }
           <li><NavLink to="/articles">Статьи</NavLink></li>
           <li><NavLink to="/donation">Донат :з</NavLink></li>
         </ul>

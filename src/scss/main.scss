@@ -210,3 +210,36 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 839px) {
+  .content-container {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    p {
+      margin: 20px 0 20px 0;
+      width: 90%;
+      font-size: 16px;
+      text-align: justify;
+    }
+    .under-header {
+      top: 0;
+      position: absolute;
+      height: $navHeight;
+      padding: 0 100px;
+      border: 2px solid #101010;
+      width: 90%;
+      border-top: 0;
+      border-bottom: 0;
+      background-color: #ffffff;
+    }
+    .page-header {
+      font-size: 24px;
+    }
+  }
+  .copyright {
+    font-size: 16px;
+  }
+}
