@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import '../scss/navbar.scss';
 import logo from './logo.png';
+import Client from '../client';
 
 export const Navbar: React.FunctionComponent = () => {
   const history = useHistory();
@@ -21,7 +22,7 @@ export const Navbar: React.FunctionComponent = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
-    if (document.documentElement.clientWidth < 840) {
+    if (Client.isMobile) {
       setShowExtraMenu(false);
     }
 
