@@ -23,3 +23,9 @@ p.get-drafts {
     color: $textColor;
   }
 }
+
+@media screen and (max-width: 839px) {
+  .filters {
+    display: none;
+  }
+}

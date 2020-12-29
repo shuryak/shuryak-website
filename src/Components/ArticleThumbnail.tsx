@@ -9,7 +9,7 @@ import { OutputData } from '@editorjs/editorjs';
 import ApiErrors from '../apiErrors';
 import { refreshTokenPair } from '../jwt';
 
-export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({id, name, author, is_draft, thumbnail}) => {
+export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({id, name, author, is_draft, thumbnail}, isMini: boolean) => {
   const [nickname, setNickname] = useState<string>('');
 
   useEffect(() => {
@@ -48,12 +48,15 @@ export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({id, name
   }
 
   return (
-    <div className="article-thumbnail-wrapper">
-      <Edit/>
-      <NavLink to={`/article/${id}`} className="article-thumbnail">
-        <h1 className="article-title">{name}</h1>
-        <div className="article-fade"/>
-        <img className="article-image" src={thumbnail} alt=""/>
+    <div className="article-thumbnail-mini">
+      {/*<Edit/>*/}
+      {/*<NavLink to={`/article/${id}`} className="article-thumbnail">*/}
+      {/*  <h1 className="article-title">{name}</h1>*/}
+      {/*  <div className="article-fade"/>*/}
+      {/*  <img className="article-image" src={thumbnail} alt=""/>*/}
+      {/*</NavLink>*/}
+      <NavLink to={`/article/${id}`}>
+        <h1 className="article-title-mini">{name}</h1>
       </NavLink>
     </div>
   );
