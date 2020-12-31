@@ -22,12 +22,19 @@ export const Navbar: React.FunctionComponent = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
-    if (Client.isMobile) {
-      setShowExtraMenu(false);
-    }
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('scroll', handleResize);
+  });
+
+  const handleResize = () => {
+    setShowExtraMenu(!Client.isMobile);
+  };
 
   return (
     <header className={isScroll && showExtraMenu? 'header-wrapper minimize' : 'header-wrapper'}>

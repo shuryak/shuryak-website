@@ -11,11 +11,23 @@ import { refreshTokenPair } from '../jwt';
 import Client from '../client';
 
 export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({id, name, author, is_draft, thumbnail}, isMini: boolean) => {
+  const [mini, setMini] = useState<boolean>(false);
   const [nickname, setNickname] = useState<string>('');
 
   useEffect(() => {
     getNickname();
   }, [])
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('scroll', handleResize);
+  });
+
+  const handleResize = () => {
+    setMini(Client.isMobile);
+  };
 
   const getNickname = () => {
     sendRequest('POST', UsersMethods.GetUserInfo)
@@ -32,7 +44,7 @@ export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({id, name
             break;
         }
       });
-  }
+  };
 
   const Edit = () => {
     if (nickname === author) {
@@ -46,31 +58,11 @@ export const ArticleThumbnail: React.FunctionComponent<MetaArticle> = ({id, name
       );
     }
     return <React.Fragment/>;
-  }
+  };
 
-  // return (
-  //   React
-  //   { true &&
-  //       <React.Fragment>
-  //         <Edit/>
-  //         <NavLink to={`/article/${id}`} className="article-thumbnail">
-  //           <h1 className="article-title">{name}</h1>
-  //           <div className="article-fade"/>
-  //           <img className="article-image" src={thumbnail} alt=""/>
-  //         </NavLink>
-  //       </React.Fragment>
-  //   }
-  //   // { !Client.isMobile &&
-  //   //   <div className="article-thumbnail-mini">
-  //   //     <NavLink to={`/article/${id}`}>
-  //   //       <h1 className="article-title-mini">{name}</h1>
-  //   //     </NavLink>
-  //   //   </div>
-  //   // }
-  // );
   return (
     <React.Fragment>
-      { Client.isMobile
+      { mini
         ? <React.Fragment>
             <div className="article-thumbnail-mini">
               <NavLink to={`/article/${id}`}>
