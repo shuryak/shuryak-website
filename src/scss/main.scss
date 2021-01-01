@@ -218,12 +218,14 @@ footer {
     flex-direction: column;
     width: 100%;
     align-items: center;
+
     p {
       margin: 20px 0 20px 0;
       width: 90%;
       font-size: 16px;
       text-align: justify;
     }
+
     .under-header {
       top: 0;
       position: absolute;
@@ -235,11 +237,18 @@ footer {
       border-bottom: 0;
       background-color: #ffffff;
     }
+
     .page-header {
       font-size: 24px;
     }
   }
   .copyright {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 839px) {
+  .under-header {
+    display: none;
   }
 }
